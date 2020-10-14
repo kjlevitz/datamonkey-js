@@ -58,6 +58,9 @@ FUBAR.statics.spawn = function (fn, options, callback) {
     datatype = options.datatype;
 
   fubar.mail = options.mail;
+  if (options.source == "api") {
+    fubar.source = "api";
+  }
 
   const connect_callback = function (data) {
     if (data == "connected") {
