@@ -3,10 +3,13 @@ var mongoose = require("mongoose"),
   logger = require("../../lib/logger"),
   helpers = require("../../lib/helpers");
 
+require("mongoose-schema-extend");
+
 var AnalysisSchema = require(__dirname + "/analysis");
 
 var GARD = AnalysisSchema.extend({
   analysis_type: Number,
+  datatype: String,
   last_status_msg: String,
   results: Object,
   site_to_site_variation: String,
@@ -68,6 +71,7 @@ GARD.statics.spawn = function (fn, options, callback) {
 
   gard.site_to_site_variation = site_to_site_variation;
   gard.rate_classes = rate_classes;
+  gard.datatype = datatype;
   gard.mail = options.mail;
 
   if (options.source == "api") {

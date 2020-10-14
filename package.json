@@ -1,6 +1,6 @@
 {
   "name": "datamonkey.js",
-  "version": "1.6.2",
+  "version": "1.7.3",
   "description": "A free public server for comparative analysis of sequence alignments using state-of-the-art statistical models.",
   "private": true,
   "author": {
@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "5.14.0",
-    "@fortawesome/free-regular-svg-icons": "5.13.0",
-    "@fortawesome/free-solid-svg-icons": "5.13.0",
+    "@fortawesome/free-regular-svg-icons": "5.14.0",
+    "@fortawesome/free-solid-svg-icons": "5.14.0",
     "alignment.js": "^0.3.0",
     "async": "^0.1.0",
     "blueimp-file-upload": "^9.19.1",
@@ -41,7 +41,7 @@
     "jquery-file-upload-middleware": "^0.1.8",
     "jquery-ui": "^1.11.0",
     "jquery.ui.widget": "^1.10.3",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.20",
     "main-bower-files": "^2.9.0",
     "moment": "^2.8.0",
     "mongodb": "^2.0.0",
