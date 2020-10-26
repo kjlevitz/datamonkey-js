@@ -64,7 +64,7 @@ Busted.statics.spawn = function (fn, options, callback) {
 
   Msa.parseFile(fn, datatype, gencodeid, (err, msa) => {
     if (err) {
-      res.json(500, { error: err });
+      callback(err, null);
       return;
     }
 
@@ -73,7 +73,7 @@ Busted.statics.spawn = function (fn, options, callback) {
       var error =
         "Site limit exceeded! Sites must be less than " + busted.max_sites;
       logger.error(error);
-      res.json(500, { error: error });
+      callback(error, null);
       return;
     }
 
@@ -82,7 +82,7 @@ Busted.statics.spawn = function (fn, options, callback) {
         "Sequence limit exceeded! Sequences must be less than " +
         busted.max_sequences;
       logger.error(error);
-      res.json(500, { error: error });
+      callback(error, null);
       return;
     }
 
