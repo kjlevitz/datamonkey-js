@@ -74,7 +74,7 @@ BGM.statics.spawn = function (fn, options, callback) {
   Msa.parseFile(fn, datatype, gencodeid, (err, msa) => {
     if (err) {
       logger.error(err);
-      callback(err);
+      callback(err, null);
       return;
     }
     // Check if msa exceeds limitations
@@ -82,7 +82,7 @@ BGM.statics.spawn = function (fn, options, callback) {
       const error =
         "Site limit exceeded! Sites must be less than " + bgm.max_sites;
       logger.error(error);
-      callback(error);
+      callback(error, null);
       return;
     }
 
@@ -91,7 +91,7 @@ BGM.statics.spawn = function (fn, options, callback) {
         "Sequence limit exceeded! Sequences must be less than " +
         bgm.max_sequences;
       logger.error(error);
-      callback(error);
+      callback(error, null);
       return;
     }
 
@@ -107,7 +107,7 @@ BGM.statics.spawn = function (fn, options, callback) {
     bgm.save((err, bgm_result) => {
       if (err) {
         logger.error("bgm save failed");
-        callback(err);
+        callback(err, null);
         return;
       }
 

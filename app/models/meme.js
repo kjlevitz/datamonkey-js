@@ -69,8 +69,8 @@ MEME.statics.spawn = function (fn, options, callback) {
 
   Msa.parseFile(fn, datatype, gencodeid, (err, msa) => {
     if (err) {
-      res.json(500, { error: err });
-      callback(err);
+      logger.error(err);
+      callback(err, null);
       return;
     }
     // Check if msa exceeds limitations
@@ -78,7 +78,7 @@ MEME.statics.spawn = function (fn, options, callback) {
       const error =
         "Site limit exceeded! Sites must be less than " + meme.max_sites;
       logger.error(error);
-      callback(error);
+      callback(error, null);
       return;
     }
 
@@ -87,7 +87,7 @@ MEME.statics.spawn = function (fn, options, callback) {
         "Sequence limit exceeded! Sequences must be less than " +
         meme.max_sequences;
       logger.error(error);
-      callback(error);
+      callback(error, null);
       return;
     }
 
@@ -97,7 +97,7 @@ MEME.statics.spawn = function (fn, options, callback) {
     meme.save((err, meme_result) => {
       if (err) {
         logger.error("meme save failed");
-        callback(err);
+        callback(err, null);
         return;
       }
 
